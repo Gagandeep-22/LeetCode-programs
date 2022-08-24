@@ -8,15 +8,10 @@ public:
         vector<int> counts(mp.size());
         int i = 0;
         for(auto m:mp) {
+            if(find (counts.begin(), counts.end(), m.second) != counts.end())
+                return false;
             counts[i] = m.second;
             i++;
-        }
-        unordered_map<int,int> cntFreq;
-        for(int i:counts) 
-        {
-            if(cntFreq.find(i) != cntFreq.end())
-                return false;
-            cntFreq[i]++;
         }
         return true;
     }
